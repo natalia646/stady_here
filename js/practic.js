@@ -18,6 +18,18 @@ function calcPowerNumber(a, n) {
     }
   }
   console.log(calcPowerRecurs(3, 3));
+
+  
+  function explorer (htmlElement){
+    console.log(htmlElement);
+    const children = htmlElement.children;
+    if (children.length !== 0){
+      for(const child of children){
+          explorer(child)
+      }
+    }
+  }
+  explorer(document.body)
   
   //!факторіал рахує рекурсією
   function calcFactorial(n) {
@@ -625,4 +637,4 @@ console.log(porschPanamera.year.call(fordMustang, 2021, 'May'))
 const showPYear = porschPanamera.year.bind(fordMustang, 2019, "Jun");
 console.log(showPYear())
 const showPYear2 = porschPanamera.year.bind(fordMustang);
-console.log(showPYear2(2018, 'December'))
+console.log(showPYear2(2018, 'December'));
