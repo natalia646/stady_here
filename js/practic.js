@@ -714,3 +714,10 @@ const showPYear = porschPanamera.year.bind(fordMustang, 2019, "Jun");
 console.log(showPYear())
 const showPYear2 = porschPanamera.year.bind(fordMustang);
 console.log(showPYear2(2018, 'December'));
+
+//!Immediately Invoked Function Expression (IIFE)
+//функції, які виконуються відразу після її оголошення. Вона включена в круглі дужки, що робить цю функцію виразом, а наступна пара дужок забезпечує її митєве виконання
+
+(function (value = 12){
+  console.log('na ' + value)
+})()
