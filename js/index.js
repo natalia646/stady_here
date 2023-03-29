@@ -1,56 +1,54 @@
-function explorer(htmlElement) {
-  console.log(htmlElement);
-  const children = htmlElement.children;
-  if (children.length !== 0) {
-    for (const child of children) {
-      explorer(child);
-    }
-  }
+// в об'єктах
+const person = {
+  id: 25,
+  statis: true,
+};
+const {id: number, statis } = person;
+console.log(number);
+console.log(statis);
+
+// в масивах
+const numbers = ['one', 'two', 'three', 'four'];
+const [one, two, , four] = numbers;
+const [,, ...three] = numbers; // може бути тільки в кінці
+console.log(one);
+console.log(two);
+console.log(three);
+console.log(four);
+
+// обмін значеннями
+let a = 1;
+let b = 2;
+[a, b] = [b, a];
+
+//аргументи функції
+const student = {
+  name: "lisa",
+  age: 23,
+  nation: "Ukrain",
+  family: {
+    mother: 'Tania',
+    father: 'Bob',
+    sister: 'Alisa'
+  },
+  greting: function () {
+    return  `Hello! My name is ${this.name}. My age is ${this.age}. And I from ${this.nation}`;
+  },
+};
+
+
+const student2 = {
+  name: "Ala",
+  age: 43,
+  nation: "Poland",
+  family: {
+    mother: 'Tania',
+    father: 'Bob',
+    sister: 'Alisa'
+  },
 }
-// explorer(document.body)
 
-function changeWordsOrder(str) {
-  return str
-    .split(" ")
-    .sort((a, b) => a.length - b.length)
-    .join(" ");
+function whoIs({name, age, family: {mother: motherName} }){
+  return student.greting.call(student2) + `. My mother's ${motherName}`
 }
-// console.log(changeWordsOrder("Hello World my dear friends"))
-
-function oddEvenNumber(num) {
-  let odd = 0;
-  let even = 0;
-  String(num)
-    .split("")
-    .map((v) => (Number(v) % 2 ? even++ : odd++));
-
-  return { odd: odd, even: even };
-}
-// console.log(oddEvenNumber(749));
-
-// function nearestSq(n) {
-//   let num = n;
-//   const int = Number.isInteger(Math.sqrt(n));
-//   if (int) {
-//     return n;
-//   } else {
-//     let minus;
-//     let stepM = 0;
-//     while (!int) {
-//       minus = --n;
-//       stepM++;
-//     }
-
-//     let plus;
-//     let stepP = 0;
-//     while (!Number.isInteger(Math.sqrt(num))) {
-//       plus = ++num;
-//       stepP++;
-//     }
-//     return stepP < stepM ? plus : minus;
-//   }
-// }
-
-
-
-
+console.log(whoIs(student2))

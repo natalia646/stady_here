@@ -191,8 +191,17 @@ function calcPowerNumber(a, n) {
     }
     return resolt;
   }
-  
   console.log(calcSumm(1, 2, 3, 5, 3, 6, 7));
+
+
+  function namef (){
+    let pum = 1;
+    for(let i = 0; i < arguments.length; i++){
+      pum = pum * [...arguments][i] 
+    }
+    return pum
+  }
+  console.log(namef(1, 3, 4, 6))
   
   //кращий метод додати невідому кітькість аргументів
   const sum = (...arg) => arg.reduce((a, b) => a + b, 0);
@@ -519,7 +528,7 @@ function calcPowerNumber(a, n) {
   
   console.log(findSimilarity("bag dog dig dot doog dogs", "dog"));
 
-  //!Дуструктуризація
+  //!Деструктуризація
   function shuffleIt(arr, ...change) {
     let changeArr = [...arr];
     for (let mini of change) {
@@ -529,6 +538,58 @@ function calcPowerNumber(a, n) {
     return changeArr;
   }
   console.log(shuffleIt([1,2,3,4,5],[1,2],[3,4],[2,3]));
+
+  // в об'єктах
+const person = {
+  id: 25,
+  statis: true,
+};
+const {id: number, statis } = person;
+console.log(number);
+console.log(statis);
+
+// в масивах
+const numb = ['one', 'two', 'three', 'four'];
+const [one, two, , four] = numbers;
+const [,, ...three] = numbers; // може бути тільки в кінці
+console.log(one);
+console.log(two);
+console.log(three);
+console.log(four);
+
+// обмін значеннями
+let odyn = 1;
+let dva = 2;
+[odyn, dva] = [dva, odyn];
+
+//аргументи функції
+const student = {
+  name: "lisa",
+  age: 23,
+  nation: "Ukrain",
+  family: {
+    mother: 'Tania',
+    father: 'Bob',
+    sister: 'Alisa'
+  },
+  greting: function () {
+    return  `Hello! My name is ${this.name}. My age is ${this.age}. And I from ${this.nation}`;
+  },
+};
+const student2 = {
+  name: "Ala",
+  age: 43,
+  nation: "Poland",
+  family: {
+    mother: 'Tania',
+    father: 'Bob',
+    sister: 'Alisa'
+  },
+}
+function whoIs({name, age, family: {mother: motherName} }){
+  return student.greting.call(student2) + `. My mother's ${motherName}`
+}
+console.log(whoIs(student2));
 
 //! reduce()
 const objem = [2, 4, 6];
