@@ -720,4 +720,15 @@ console.log(showPYear2(2018, 'December'));
 
 (function (value = 12){
   console.log('na ' + value)
-})()
+})();
+
+//!Композиція 
+//тобто результат першої функції можна використовуівти на вхід для другої
+
+const first = (n) => n ** n - 1;
+const second = (n) => n + 100;
+const threerd = (n) => n + '-_-';
+
+console.log(a(3))
+console.log(b(a(3)));
+console.log(c(b(a(3))));
