@@ -1,3 +1,18 @@
+//! Різниця між let, const, var
+// let - Невидема поза межами блоку, але можна перевизначити
+let letA = 5;
+letA = 7
+console.log(letA)
+
+//const - Невидема поза межамиблоку і не можна перевизначити
+const constA = 2;
+console.log(constA)
+
+//var - Видима поза межами блоку (окрім блоку функції) і можна перевизначити
+var varA = 10;
+varA = 15
+console.log(varA)
+
 //! Рукурсія
 function calcPowerNumber(a, n) {
     //цикл
