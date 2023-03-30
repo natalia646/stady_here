@@ -1,14 +1,15 @@
+const upperCase = (str) => str.toUpperCase();
+const tripleExclaim = (str) => str + "!!!";
+const split = (str) => (some) => str.split(some);
+const join = (arr) => (some) => arr.join(some);
+const copy = (str) => `${str} ${str}`;
+const createComposition =
+  (...args) =>
+  (value) =>
+    args.reduce((acc, fn) => fn(acc), value);
+const result = createComposition(upperCase, tripleExclaim, split, join, copy);
 
-function getModifiedArray(array) {
-//    const start = 'Start'
-//    const end = arr[arr.length - 1];
-   
-   const arr = [...array];
-   arr[0] = 'Start';
-   arr[arr.length - 1] = 'End';
-   return arr
+console.log(split('dfjjf jgrkfj rjrkf')(' ') )
+console.log('dfjjf jgrkfj rjrkf'.split(' '))
 
-   
- }
-
- console.log(getModifiedArray([12, 6, 22, 0, -8])); 
+console.log(result("total sale"));
