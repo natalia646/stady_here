@@ -732,3 +732,18 @@ const threerd = (n) => n + '-_-';
 console.log(a(3))
 console.log(b(a(3)));
 console.log(c(b(a(3))));
+
+//! Spred,  Rest оператор
+// різниця
+//spred
+function perimeter(a, b, c){ // приймає звичайні аргуманти
+  return a + b + c
+}
+const arg = [2, 3, 5];
+console.log(perimeter(...arg)) // розгортає масив і робить звичайні аргументи
+
+//rest
+function addEx(...arr){       // приймає масив
+  return arr.map(v => v + '!')
+}
+console.log(addEx(1, 3, 'hello', true)) // приймає звичайні аргументи і робить з нього масив
