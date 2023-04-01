@@ -17,8 +17,8 @@ class Compere {
     return a === b;
   }
 
-  static more(a, b) {
-    return a > b;
+  get studentCourse() {
+    return this.course;
   }
 
   static less(a, b) {
