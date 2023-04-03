@@ -1,5 +1,5 @@
 
-//! Конструктори
+ //! Object and OOP
 function User(name, age, status) {
     // конструктор - Функція що визначає характеристики обєкта
     this.name = name;
@@ -39,7 +39,7 @@ function User(name, age, status) {
   }
   const userss1 = new Userss("nata", 22, true, "iva", 24);
   
-  //! Object and OOP
+  
   function beep() {
     console.log(`${this.make} ${this.modal} beep-beep`);
   }
@@ -61,7 +61,7 @@ function User(name, age, status) {
   console.log(miniCooper);
   miniCooper.beep();
   
-  // конструктор
+//! Конструктори
   function Car(make, modal, prise) {
     this.make = make;
     this.modal = modal;
@@ -117,9 +117,34 @@ function User(name, age, status) {
   const hummerEV = new EVSuserCar("GM", "Hummer", 150000, 42);
   console.log(hummerEV);
   hummerEV.beep();
+
+  //! Прототипне наслідуввання
+function Carr(make, modal, prise) {
+  this.make = make;
+  this.modal = modal;
+  this.prise = prise;
+}
+Carr.prototype.drive = function () {
+  return `${this.make} costs ${this.prise}`;
+};
+const mers = new Carr("Mers", "S", 100000);
+// console.log(mers);
+
+function SuperPuperCarr(make, modal, prise, year) {
+  Carr.call(this, make, modal, prise, year);
+  this.year = year;
+}
+SuperPuperCarr.prototype = Object.create(Carr.prototype); //!
+
+const porsh = new SuperPuperCarr("Porsh", "Panamera", 200000, 2022);
+// console.log(porsh);
+
+SuperPuperCarr.prototype.cary = function () {
+  return `${this.modal}`;
+};
   
   
-  // STATIC 
+  //! STATIC 
   const user12 = new User("rew", 43, true);
   const user22 = new User("pit", 23, false);
   class Compere {
@@ -223,3 +248,28 @@ const mathPiDesc = {
   value: 3.141592653589793,
   writable: false,
 }; // тобто в обєкті(класс) Math є ключ PI який, не можна перевизначати, не можна видалаяти чи змінювати будь-який прапорекь цієї властивості, та не ітерується
+
+//! Інкапсуляція, приховування даних
+
+class Employee {
+  constructor(name, experience) {
+    this.name = name;
+    this.experience = experience;
+  }
+  #baseSalary = 500;
+
+  #salary = function () {
+    return this.#baseSalary * (1 + this.experience / 5);
+  };
+
+  details = function () {
+    return `Name: ${this.name}, experience ${
+      this.experience
+    }, salary: ${this.#salary()}`;
+  };
+}
+
+let employee = new Employee("Tom", 5);
+employee.baseSalary = 200;    // не можливо перевизначити
+// console.log(employee.salary());   // видає помилку, не можливо викликати ззовні
+console.log(employee.details());
