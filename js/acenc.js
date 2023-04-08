@@ -34,3 +34,91 @@ function getCountri(nameCountri) {
 getCountri("Ukraine");
 getCountri("USA");
 // getCountri("Italy");
+
+
+// function job1(){
+//   return new Promise(function(resolve, reject){
+//     reject();
+//   })
+// }
+
+// let promise = job1();
+
+// console.log(promise)
+
+// promise
+// .then(function(){
+//   console.log('S 1')
+// })
+// .then(function(){
+//   console.log('S 2')
+// })
+// .then(function(){
+//   console.log('S 3')
+// })
+// .catch(function(){
+//   console.log('E 1')
+// })
+// .then(function(){
+//   console.log('S 4')
+// })
+
+//****************************************************** */
+// function job(state){
+//   return new Promise(function(resolve, reject){
+//     if(state){
+//       resolve('success');
+//     }else{
+//       reject('error')
+//     }
+//   })
+// }
+
+// let promise = job(true);
+
+// console.log(promise)
+
+// promise
+// .then(function(data){
+//   console.log(data)
+//   return job(false)
+// })
+// .catch(function(error){
+//   console.log(error)
+//   return 'Eror'
+// })
+// .then(function(data){
+//   console.log(data)
+//   return job(true)
+// })
+// .catch(function(error){
+//   console.log(error)
+// })
+
+//******************************************** */
+
+// const myPromise = () => Promise.resolve('I have');
+// function first (){
+//   myPromise().then(res => console.log(res));
+//   console.log('second')
+// }
+// async function second(){
+//  console.log(await myPromise());
+//  console.log('second')
+// }
+// first()
+// second()
+
+//********************************* */
+// async function* range(start, end){
+//   for(let i = start; i <= end; i++){
+//     yield Promise.resolve(i)
+//   }
+// }
+
+// (async () => {
+//   const gen = range(1, 3);
+//   for await (const item of gen){
+//     console.log(item)
+//   }
+// })();
